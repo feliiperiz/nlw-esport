@@ -18,39 +18,63 @@ body {
 
 body * {
   font-family: "Inter", sans-serif;
+  line-height: 160%;
 }
 
 header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
+  margin-top: 32px;
+  height: 120px;
+}
+
+header div {
+  width: 120px;
+  margin: auto;
   background-image: linear-gradient(
     90deg,
     #9572fc 0%,
     #43e7ad 50.52%,
     #e2d45c 100%
   );
-  width: 130px;
-  height: 130px;
   border-radius: 50%;
-  margin-top: 32px;
+  display: flex;
+  padding: 4px;
+  transition: transform 0.3s;
+  animation: fromTop 0.7s 0.4s backwards;
+}
+
+header div:hover {
+  transform: scale(1.1);
 }
 
 header img {
-  display: block;
-  width: 120px;
+  width: 100%;
   border-radius: 50%;
 }
 
 main {
   max-width: 580px;
   width: 90%;
-  margin: auto;
+  margin: 32px auto;
   display: flex;
   flex-direction: column;
   gap: 24px;
   margin-top: 32px;
+}
+
+main section {
+  animation: fromBottom 0.7s backwards;
+}
+
+main section:nth-child(1) {
+  animation-delay: 0;
+}
+
+main section:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+main section:nth-child(3) {
+  animation-delay: 0.8s;
 }
 
 section {
@@ -74,7 +98,6 @@ section div {
 
 section h2 {
   letter-spacing: -0.47px;
-  margin-bottom: 5px;
 }
 
 section p {
@@ -86,7 +109,15 @@ section ul {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-  margin-top: 24px;
+  margin-top: 18px;
+}
+
+section ul li {
+  transition: transform 0.3s;
+}
+
+section ul li:hover {
+  transform: scale(1.1);
 }
 
 .games-list img {
@@ -97,4 +128,27 @@ section ul {
 .channel-list img {
   width: 70px;
   border-radius: 50%;
+  border: 1px solid #443e54;
+}
+
+@keyframes fromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
